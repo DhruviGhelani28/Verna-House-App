@@ -1,10 +1,13 @@
-import { useParams } from "react-router-dom";
+
 
 const Registration = props => {
-    let { registration } = useParams();
+    // let { registration } = useParams();
     return (
-        <h3> it is registration</h3>
+        <div>
+            <h3> it is registration</h3>
+            
+        </div>
     );
-        
+
 };
 export default Registration;

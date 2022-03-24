@@ -1,24 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from './Login';
 import Registration from "./Registration";
-import Button from '@mui/material/Button';
-
+// import Button from '@mui/material/Button';
+import { Outlet } from "react-router-dom";
+import { Contactless } from "@mui/icons-material";
+import { Container } from "@mui/material";
 const LoginRegistration = props => {
     // let match = useMatch();
     const navigate = useNavigate()
     const registrationHandler = () => {
         navigate("/Registration")
     }
+    const loginHandler = () => {
+        navigate("/")
+    }
     return (
         <React.Fragment>
-
-            <h2 align="center">Login Here</h2>
-            <Routes>
-                <Route path="/Login" element={<Login onClick={registrationHandler} />} exact />
-                <Route path="/Registration" element={<Registration />} exact />
-            </Routes>
-
+            <Container align="center">
+                <Routes>
+                    <Route path="/" element={<Login onClick={loginHandler} onRegisterClick={registrationHandler} />} exact />
+                    <Route path="/Registration" element={<Registration />} exact />
+                </Routes>
+            </Container>
 
 
         </React.Fragment>

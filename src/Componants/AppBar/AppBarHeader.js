@@ -19,9 +19,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import ButtonBase from '@mui/material/ButtonBase';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
-import MainMenu from './MainMenu';
-import RenderMenu from './RenderMenu';
-import MobileMenu from './MobileMenu';
+import MainMenu from '../HeaderMenu/MainMenu';
+import RenderMenu from '../HeaderMenu/RenderMenu';
+import MobileMenu from '../HeaderMenu/MobileMenu';
 
 // const pages = ['Home', 'About', 'Login']
 const AppBar = styled(MuiAppBar, {
@@ -121,7 +121,8 @@ const AppBarHeader = props => {
     const navigate1 = useNavigate()
     const navigate2 = useNavigate()
     const navigate3 = useNavigate()
-
+    const navigate4 = useNavigate()
+    const navigate5 = useNavigate()
     const homeHandler = () => {
         navigate1("/")
     }
@@ -131,7 +132,12 @@ const AppBarHeader = props => {
     const loginHandler = () => {
         navigate3("/Login")
     }
-
+    const messHandler = () => {
+        navigate4("/Messages")
+    }
+    const notificationHandler = () => {
+        navigate5("/Notifications")
+    }
     const [anchorEl, setAnchorEl] = useState(null)
     const [mainMenuEl, setMainMenuEl] = useState(null)
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
@@ -149,17 +155,18 @@ const AppBarHeader = props => {
     const closeMobileMenuHandler = () => {
         setMobileMoreAnchorEl(null)
     }
-    const openMainMenuHandler = (event) => {
-        setMainMenuEl(event.currentTarget)
-    }
+    // const openMainMenuHandler = (event) => {
+    //     setMainMenuEl(event.currentTarget)
+    // }
     const closeMainMenuHandler = () => {
         setMainMenuEl(null)
     }
-
+    
 
     return (
-        <Box sx={{ flexGrow: 1, display: 'flex' }} >
-            <AppBar position='sticky' open={props.open} drawerwidth={props.drawerwidth} >
+        <React.Fragment>
+
+            <AppBar position='fixed' open={props.open} drawerwidth={props.drawerwidth} >
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -244,7 +251,8 @@ const AppBarHeader = props => {
                         <IconButton
                             size="large"
                             aria-label="show 4 new mails"
-                            color="inherit">
+                            color="inherit"
+                            onClick={messHandler}>
                             <Badge badgeContent={4} color="error">
                                 <MailIcon />
                             </Badge>
@@ -252,7 +260,8 @@ const AppBarHeader = props => {
                         <IconButton
                             size="large"
                             aria-label='show 17 new notifications'
-                            color="inherit">
+                            color="inherit"
+                            onClick={notificationHandler}>
                             <Badge badgeContent={17} color="error">
                                 <NotificationsIcon />
                             </Badge>
@@ -286,7 +295,8 @@ const AppBarHeader = props => {
             <MainMenu mainMenuEl={mainMenuEl} mainMenuId={mainMenuId} onClose={closeMainMenuHandler}></MainMenu>
             <MobileMenu mobileMoreAnchorEl={mobileMoreAnchorEl} mobileMenuId={mobileMenuId} onClose={closeMobileMenuHandler} onOpen={openProfileMenuHandler}></MobileMenu>
             <RenderMenu anchorEl={anchorEl} menuId={menuId} onClose={closeMenuHandler}></RenderMenu>
-        </Box >
+
+        </React.Fragment>
     );
 };
 export default AppBarHeader;

@@ -65,8 +65,7 @@ const Drawer = props => {
                 <Divider />
                 <List open={props.open}>
                     {props.children}
-                </List>
-                
+                </List> 
             </Drawer1>
         </React.Fragment>
     );
