@@ -9,16 +9,11 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
-const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-        •
-    </Box>
-);
-
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import key from "../../images/key.png";
+import classes from './Login.module.css';
+import { useNavigate } from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -51,16 +46,21 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 
 const Login = props => {
+    const navigate = useNavigate()
+
+    const changePasswordHandler = () => {
+        navigate("/ChangePassword")
+    }
+
     return (
-        <React.Fragment>
-            <Card variant="outlined" sx={{ maxWidth: 450, maxHeight: 4000, borderRadius: 5, borderColor: 'primary.main', paddingTop: 1 }} >
+        <div>
+            <Card variant="outlined" sx={{ maxWidth: 550, maxHeight: 4000, borderRadius: 5, borderColor: 'primary.main', paddingTop: 1, marginTop: 3, margin: "center" }} margin="10px">
                 <CardContent>
                     <h2 >Login Here</h2>
                     <StyledBadge
                         overlap="circular"
                         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                         variant="dot"
-
                     >
                         <Avatar
                             alt="Remy Sharp"
@@ -68,29 +68,71 @@ const Login = props => {
                             sx={{ width: 56, height: 56 }}
                             position='sticky'
                         /></StyledBadge>
-                    <form>
-                        <div paddingTop="10px">
-                            <label htmlFor="MailId">Enter Email Address:</label>
-                            <input type="text" placeholder="xyz@abc.com"></input>
-                        </div>
+
+                    <Box
+                        component="form"
+                        sx={{
+                            marginTop: 5,
+
+                            '& .MuiTextField-root': { m: 1, width: '40ch' },
+                            // '& .MuiButton-root': { marginRight:10 },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                    >
                         <div>
-                            <label htmlFor="Password">Enter Password:</label>
-                            <input type="text" placeholder="*****"></input>
+                            <div>
+                                <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5, position: 'relative', marginTop: 3, marginRight: -0.3 }} />
+                                <TextField
+                                    required
+                                    multiline
+                                    id="outlined-textarea"
+                                    label="Enter Your Email Address"
+                                    placeholder="xyz@abc.com"
+                                />
+                            </div>
+                            <div>
+                                <img width="23" src={key} className={classes.marginTop}></img>
+                                <TextField
+                                    required
+                                    id="outlined-password-input"
+                                    label="Enter Password"
+                                    type="password"
+                                    placeholder="*******"
+                                    autoComplete="current-password"
+                                />
+                            </div>
+                            <div className={classes.button}>
+                                <></>
+                                <Button
+                                    variant="contained"
+                                    onClick={props.onClick}
+                                    sx={{
+                                        marginTop: 0,
+                                        marginRight: -38.5,
+                                        
+                                    }}>
+                                    Login</Button>
+                            </div> <div >
+                                <Button
+                                    variant="outlined"
+                                    onClick={props.onRegisterClick}
+                                    sx={{
+                                        marginTop: 0,
+                                        marginRight: 10
+                                    }}>
+                                    Register Here</Button>
+                            </div>
                         </div>
-                        <Button variant="contained" onClick={props.onClick}>Login</Button>
-                        <Button variant="outlined" onClick={props.onRegisterClick}>
-                            Register Here
-                        </Button>
-                    </form>
+                    </Box>
+
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Learn More</Button>
+                    <Button size="small" onClick={changePasswordHandler}>Change Password</Button>
                 </CardActions>
-
             </Card>
+        </div>
 
-
-        </React.Fragment>
     );
 
 };

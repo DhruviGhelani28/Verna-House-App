@@ -8,7 +8,7 @@ const RenderMenu = (props) => {
     return (
         <Menu
             anchorEl={props.anchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right', }}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
             id={props.menuId}
             keepMounted
             transformOrigin={{ vertical :'top', horizontal:'right',}}

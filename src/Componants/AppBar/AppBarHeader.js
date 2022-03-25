@@ -155,145 +155,142 @@ const AppBarHeader = props => {
     const closeMobileMenuHandler = () => {
         setMobileMoreAnchorEl(null)
     }
-    // const openMainMenuHandler = (event) => {
-    //     setMainMenuEl(event.currentTarget)
-    // }
     const closeMainMenuHandler = () => {
         setMainMenuEl(null)
     }
-    
+
 
     return (
         <React.Fragment>
-
-            <AppBar position='fixed' open={props.open} drawerwidth={props.drawerwidth} >
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label='open drawer'
-                        sx={{
-                            marginRight: 3,
-                            ...(props.open && { display: 'none' }),
-                        }}
-                        aria-haspopup="true"
-                        onClick={props.onOpen}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-
-                    <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBased
-                            placeholder="Search....."
-                            inputpprops={{ 'aria-label': 'search' }} />
-                    </Search>
-                    <Box>
-                        <Button1 focusRipple textalign='center'>
-                            <Typography
-                                component="span"
-                                variant="button"
-                                onClick={homeHandler}
-                                color="inherit"
-
-                                sx={{
-                                    position: 'relative',
-                                    p: 2,
-                                    pt: 0,
-                                    pb: (theme) => `calc(${theme.spacing(2)} + 4px)`,
-                                }}
-                            >
-                                Home
-                                <ImageMarked className="MuiImageMarked-root" />
-                            </Typography>
-                        </Button1>
-                        <Button1 focusRipple textalign='center'>
-                            <Typography
-                                component="span"
-                                variant="button"
-                                onClick={aboutHandler}
-                                color="inherit"
-
-                                sx={{
-                                    position: 'relative',
-                                    p: 2,
-                                    pt: 0,
-                                    pb: (theme) => `calc(${theme.spacing(2)} + 4px)`,
-                                }} >
-                                About Us
-                                <ImageMarked className="MuiImageMarked-root" />
-                            </Typography>
-                        </Button1>
-                        <Button1 focusRipple textalign='center'>
-                            <Typography
-                                component="span"
-                                variant="button"
-                                onClick={loginHandler}
-                                color="inherit"
-
-                                sx={{
-                                    position: 'relative',
-                                    p: 2,
-                                    pt: 0,
-                                    pb: (theme) => `calc(${theme.spacing(2)} + 4px)`,
-                                }} >
-                                Login
-                                <ImageMarked className="MuiImageMarked-root" />
-                            </Typography>
-                        </Button1>
-                    </Box>
-
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <AppBar position='fixed' open={props.open} drawerwidth={props.drawerwidth} >
+                    <Toolbar>
                         <IconButton
                             size="large"
-                            aria-label="show 4 new mails"
+                            edge="start"
                             color="inherit"
-                            onClick={messHandler}>
-                            <Badge badgeContent={4} color="error">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            aria-label='show 17 new notifications'
-                            color="inherit"
-                            onClick={notificationHandler}>
-                            <Badge badgeContent={17} color="error">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
+                            aria-label='open drawer'
+                            sx={{
+                                marginRight: 3,
+                                ...(props.open && { display: 'none' }),
+                            }}
                             aria-haspopup="true"
-                            onClick={openProfileMenuHandler}
-                            color="inherit"
+                            onClick={props.onOpen}
                         >
-                            <AccountCircle />
+                            <MenuIcon />
                         </IconButton>
-                    </Box>
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup='true'
-                            onClick={openMobileMenuHandler}
-                            color="inherit">
-                            <MoreIcon />
-                        </IconButton>
-                    </Box>
-                </Toolbar>
-            </AppBar>
+
+                        <Search>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBased
+                                placeholder="Search....."
+                                inputpprops={{ 'aria-label': 'search' }} />
+                        </Search>
+
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            <Button1 focusRipple textalign='center'>
+                                <Typography
+                                    component="span"
+                                    variant="button"
+                                    onClick={homeHandler}
+                                    color="inherit"
+
+                                    sx={{
+                                        position: 'relative',
+                                        p: 2,
+                                        pt: 0,
+                                        pb: (theme) => `calc(${theme.spacing(2)} + 4px)`,
+                                    }}>
+                                    Home
+                                    <ImageMarked className="MuiImageMarked-root" />
+                                </Typography>
+                            </Button1>
+                            <Button1 focusRipple textalign='center'>
+                                <Typography
+                                    component="span"
+                                    variant="button"
+                                    onClick={aboutHandler}
+                                    color="inherit"
+
+                                    sx={{
+                                        position: 'relative',
+                                        p: 2,
+                                        pt: 0,
+                                        pb: (theme) => `calc(${theme.spacing(2)} + 4px)`,
+                                    }} >
+                                    About Us
+                                    <ImageMarked className="MuiImageMarked-root" />
+                                </Typography>
+                            </Button1>
+                            <Button1 focusRipple textalign='center'>
+                                <Typography
+                                    component="span"
+                                    variant="button"
+                                    onClick={loginHandler}
+                                    color="inherit"
+
+                                    sx={{
+                                        position: 'relative',
+                                        p: 2,
+                                        pt: 0,
+                                        pb: (theme) => `calc(${theme.spacing(2)} + 4px)`,
+                                    }} >
+                                    Login
+                                    <ImageMarked className="MuiImageMarked-root" />
+                                </Typography>
+                            </Button1>
+                        </Box>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            <IconButton
+                                size="large"
+                                aria-label="show 4 new mails"
+                                color="inherit"
+                                onClick={messHandler}>
+                                <Badge badgeContent={4} color="error">
+                                    <MailIcon />
+                                </Badge>
+                            </IconButton>
+                            <IconButton
+                                size="large"
+                                aria-label='show 17 new notifications'
+                                color="inherit"
+                                onClick={notificationHandler}>
+                                <Badge badgeContent={17} color="error">
+                                    <NotificationsIcon />
+                                </Badge>
+                            </IconButton>
+                            <IconButton
+                                size="large"
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-controls={menuId}
+                                aria-haspopup="true"
+                                onClick={openProfileMenuHandler}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        </Box>
+
+                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                size="large"
+                                edge="end"
+                                aria-label="show more"
+                                aria-controls={mobileMenuId}
+                                aria-haspopup='true'
+                                onClick={openMobileMenuHandler}
+                                color="inherit">
+                                <MoreIcon />
+                            </IconButton>
+                        </Box>
+                    </Toolbar>
+                </AppBar>
+            
             <MainMenu mainMenuEl={mainMenuEl} mainMenuId={mainMenuId} onClose={closeMainMenuHandler}></MainMenu>
-            <MobileMenu mobileMoreAnchorEl={mobileMoreAnchorEl} mobileMenuId={mobileMenuId} onClose={closeMobileMenuHandler} onOpen={openProfileMenuHandler}></MobileMenu>
+            <MobileMenu mobileMoreAnchorEl={mobileMoreAnchorEl} mobileMenuId={mobileMenuId} onClose={closeMobileMenuHandler} onOpen={openProfileMenuHandler} aboutHandler={aboutHandler} loginHandler={loginHandler}></MobileMenu>
             <RenderMenu anchorEl={anchorEl} menuId={menuId} onClose={closeMenuHandler}></RenderMenu>
 
         </React.Fragment>

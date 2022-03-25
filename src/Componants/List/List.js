@@ -14,37 +14,31 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import CategoryIcon from '@mui/icons-material/Category';
 import MonochromePhotosIcon from '@mui/icons-material/MonochromePhotos';
 import SegmentIcon from '@mui/icons-material/Segment';
-
+import ConstructionIcon from '@mui/icons-material/Construction';
 import GroupsIcon from '@mui/icons-material/Groups';
 import SettingsIcon from '@mui/icons-material/Settings';
 import WcIcon from '@mui/icons-material/Wc';
 // import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Garments from "../../images/Garments.png"
+import PhotoCameraFrontIcon from '@mui/icons-material/PhotoCameraFront';
+import PhotoAlbumIcon from '@mui/icons-material/PhotoAlbum';
+
+
 const List = props => {
 
-    // const supplierHandler = () => {
-
-    // }
-
-
-
-
-
-
-
     // const funHandler = [supplierHandler]
-    const iconlist = [<SegmentIcon />, <GroupsIcon />, <PeopleIcon />, <GroupIcon />, <PeopleAltIcon />, <CategoryIcon />, <MonochromePhotosIcon />, <WcIcon />, <SettingsIcon />]
-    const list1 = ['Departments', 'Suppliers', 'Customers', 'Workers', 'Agencies', 'Items', 'Photos/Posters', 'Models', 'Settings']
+    const iconlist = [<SegmentIcon />, <GroupsIcon />, <PeopleIcon />, <GroupIcon />, <PeopleAltIcon />, <img width="25" src={Garments}></img>, <ConstructionIcon />, <PhotoAlbumIcon />, <WcIcon />, <SettingsIcon />]
+    const list1 = ['Departments', 'Suppliers', 'Customers', 'Workers', 'Agencies', 'Garments', 'Gadgets', 'Photos/Posters', 'Models', 'Settings']
     const list = list1.map((value, index) => {
         return (
             <ListItemButton
                 key={value}
                 sx={{
-                    minHeight: 40,
+                    minHeight: 35,
                     justifyContent: props.open ? 'initial' : 'revert',
                     px: 2.5,
                 }}
-            // onClick={ }
             >
                 <ListItemIcon
                     sx={{

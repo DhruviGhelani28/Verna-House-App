@@ -4,7 +4,7 @@ import Drawer from "./Drawer/Drawer";
 import DrawerHeader from "./Drawer/DrawerHeader";
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Registration from "./Login/Registration";
 // import Login from "./Login/Login";
 import Suppliers from "./Suppliers/Suppliers";
@@ -22,11 +22,29 @@ import Models from './Models/Models';
 import Messages from './Messages/Messages';
 import Notifications from './Notifications/Notifications';
 import Settings from "./Settings/Settings";
+import ChangePassword from "./Login/ChangePassword";
 
-
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+    ({ theme, open }) => ({
+        flexGrow: 1,
+        padding: theme.spacing(3),
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        marginLeft: "20px",
+        ...(open && {
+            transition: theme.transitions.create('margin', {
+                easing: theme.transitions.easing.easeOut,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+            marginLeft: 0,
+        }),
+    }),
+);
 const Home = () => {
 
-    const drawerWidth = 210;
+    const drawerWidth = 200;
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -44,12 +62,13 @@ const Home = () => {
                 <CssBaseline />
                 <AppBarHeader drawerwidth={drawerWidth} open={open} onOpen={handleDrawerOpen} />
                 <Drawer drawerwidth={drawerWidth} open={open} theme={theme} onClose={handleDrawerClose}></Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <Main >
+
                     <DrawerHeader />
                     <Routes>
                         <Route path="/About" element={<About />} exact />
 
-                        <Route path="/Login" element={<LoginRegistration />} /> 
+                        <Route path="/Login" element={<LoginRegistration />} />
                         <Route path="/Registration" element={<Registration />} />
 
                         <Route path="/Departments" element={<Departments />} exact />
@@ -63,9 +82,9 @@ const Home = () => {
                         <Route path="/Messages" element={<Messages />} exact />
                         <Route path="/Notifications" element={<Notifications />} exact />
                         <Route path="/Settings" element={<Settings />} exact />
-
+                        <Route path="/ChangePassword" element={<ChangePassword theme={theme}/>} exact />
                     </Routes>
-                </Box>
+                </Main>
             </Box>
         </React.Fragment >
 
