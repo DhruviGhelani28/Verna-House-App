@@ -82,7 +82,7 @@ const Home = () => {
                         <Route path="/Messages" element={<Messages />} exact />
                         <Route path="/Notifications" element={<Notifications />} exact />
                         <Route path="/Settings" element={<Settings />} exact />
-                        <Route path="/ChangePassword" element={<ChangePassword theme={theme}/>} exact />
+                        <Route path="/ChangePassword" element={<ChangePassword />} exact />
                     </Routes>
                 </Main>
             </Box>

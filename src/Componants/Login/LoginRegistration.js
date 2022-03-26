@@ -2,10 +2,13 @@ import React from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from './Login';
 import Registration from "./Registration";
+import ChangePassword from "./ChangePassword";
 // import Button from '@mui/material/Button';
 import { Outlet } from "react-router-dom";
-import { Contactless } from "@mui/icons-material";
+
 import { Container } from "@mui/material";
+
+
 const LoginRegistration = props => {
     // let match = useMatch();
     const navigate = useNavigate()
@@ -21,6 +24,7 @@ const LoginRegistration = props => {
                 <Routes>
                     <Route path="/" element={<Login onClick={loginHandler} onRegisterClick={registrationHandler} />} exact />
                     <Route path="/Registration" element={<Registration />} exact />
+                    <Route path="/ChangePassword" element={<ChangePassword />} exact />
                 </Routes>
             </Container>
 

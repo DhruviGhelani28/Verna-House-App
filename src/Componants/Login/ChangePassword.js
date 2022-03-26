@@ -17,6 +17,7 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useNavigate } from "react-router-dom";
+import CardActions from '@mui/material/CardActions';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -50,30 +51,32 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const ChangePassword = props => {
     const navigate = useNavigate()
 
-    const goBackdHandler = () => {
+    const goBackHandler = () => {
         navigate("/Login")
     }
 
 
     return (
-        <Container align="center">
-            <Card variant="outlined" sx={{ maxWidth: 550, maxHeight: 4000, borderRadius: 5, borderColor: 'primary.main', paddingTop: 1, marginTop: 3, margin: "center" }} margin="10px">
-                <CardContent>
-                    <IconButton onClick={goBackHandler}>
-                        {props.theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        <Container align='center'>
+            <Card variant="outlined" sx={{ maxWidth: 500, maxHeight: 5000, borderRadius: 5, borderColor: 'primary.main', paddingTop: 0, marginTop: 3 }} >
+                
+                <CardContent >
+                    <CardActions>
+                    <IconButton sx={{ marginLeft: 0 }} onClick={goBackHandler} color='primary'>
+                        <ChevronLeftIcon />
                     </IconButton>
-                    <h2 >Set Your Password</h2>
+                </CardActions>
+                    <Typography  variant="h4" component='div' fontSize='26px'>Set Your Password</Typography>
                     <StyledBadge
                         overlap="circular"
                         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                        variant="dot"
-                    >
+                        variant="dot">
                         <Avatar
                             alt="Remy Sharp"
                             src="/static/images/avatar/1.jpg"
                             sx={{ width: 56, height: 56 }}
-                            position='sticky'
-                        /></StyledBadge>
+                            position='sticky'/>
+                    </StyledBadge>
 
                     <Box
                         component="form"
@@ -89,7 +92,7 @@ const ChangePassword = props => {
                             <img width="23" src={key} className={classes.marginTop}></img>
                             <TextField
                                 required
-                                id="outlined-password-input"
+                                id="old-password"
                                 label="Enter Old Password"
                                 type="password"
                                 placeholder="*******"
@@ -100,7 +103,7 @@ const ChangePassword = props => {
                             <img width="23" src={key} className={classes.marginTop}></img>
                             <TextField
                                 required
-                                id="outlined-password-input"
+                                id="new-password"
                                 label="Enter New Password"
                                 type="password"
                                 placeholder="*******"
@@ -111,7 +114,7 @@ const ChangePassword = props => {
                             <img width="23" src={key} className={classes.marginTop}></img>
                             <TextField
                                 required
-                                id="outlined-password-input"
+                                id="confirm-password"
                                 label="Enter Confirm Password"
                                 type="password"
                                 placeholder="*******"
@@ -123,16 +126,18 @@ const ChangePassword = props => {
                                 variant="contained"
                                 onClick={props.onClick}
                                 sx={{
-                                    marginTop: 0,
+                                    marginTop: 0.5,
                                     marginRight: -37.5,
 
                                 }}>
                                 Submit</Button>
                         </div>
                     </Box>
+
                 </CardContent>
             </Card>
         </Container>
+
     );
 };
 export default ChangePassword;

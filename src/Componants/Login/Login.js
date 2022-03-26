@@ -14,7 +14,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import key from "../../images/key.png";
 import classes from './Login.module.css';
 import { useNavigate } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
         backgroundColor: '#44b700',
@@ -103,25 +103,25 @@ const Login = props => {
                                 />
                             </div>
                             <div className={classes.button}>
-                                <></>
                                 <Button
                                     variant="contained"
                                     onClick={props.onClick}
                                     sx={{
-                                        marginTop: 0,
+                                        marginTop: 0.5 ,
                                         marginRight: -38.5,
                                         
                                     }}>
                                     Login</Button>
-                            </div> <div >
-                                <Button
-                                    variant="outlined"
-                                    onClick={props.onRegisterClick}
-                                    sx={{
-                                        marginTop: 0,
-                                        marginRight: 10
-                                    }}>
-                                    Register Here</Button>
+                            </div>
+                            <div className={classes.register}>
+                                <Typography variant="body1" sx={{ marginTop: 0.5, marginLeft: -9 }}>
+                                    Don't You Have An Account?
+                                    <Link to={"/Registration"}> Sign Up  </Link>
+                                </Typography>
+                                <Typography variant="body1" sx={{ marginTop: 0.5, marginLeft:-26 }}>
+                                    <Link to={"/Registration"}>Forgot Password?
+                                    </Link>
+                                </Typography>
                             </div>
                         </div>
                     </Box>
