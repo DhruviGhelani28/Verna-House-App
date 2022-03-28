@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
-import { Container } from "@mui/material";
+// import { Container } from "@mui/material";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import key from "../../images/key.png";
-import classes from './Login.module.css';
+import classes from '../Login.module.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -56,7 +56,7 @@ const Login = props => {
         <div>
             <Card variant="outlined" sx={{ maxWidth: 550, maxHeight: 4000, borderRadius: 5, borderColor: 'primary.main', paddingTop: 1, marginTop: 3, margin: "center" }} margin="10px">
                 <CardContent>
-                    <h2 >Login Here</h2>
+                    <h2 >Sign In Here</h2>
                     <StyledBadge
                         overlap="circular"
                         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -92,7 +92,7 @@ const Login = props => {
                                 />
                             </div>
                             <div>
-                                <img width="23" src={key} className={classes.marginTop}></img>
+                                <img width="23" src={key} className={classes.marginTop} alt="key"></img>
                                 <TextField
                                     required
                                     id="outlined-password-input"
@@ -111,7 +111,7 @@ const Login = props => {
                                         marginRight: -38.5,
                                         
                                     }}>
-                                    Login</Button>
+                                    Sign In</Button>
                             </div>
                             <div className={classes.register}>
                                 <Typography variant="body1" sx={{ marginTop: 0.5, marginLeft: -9 }}>

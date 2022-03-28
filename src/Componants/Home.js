@@ -23,6 +23,10 @@ import Messages from './Messages/Messages';
 import Notifications from './Notifications/Notifications';
 import Settings from "./Settings/Settings";
 import ChangePassword from "./Login/ChangePassword";
+import Supplier_Form from "./Suppliers/Supplier_Form";
+import Customer_Form from "./Customers/Customer_Form";
+import Worker_Form from "./Workers/Worker_Form";
+import Agency_Form from "./Agencies/Agency_Form";
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -83,6 +87,10 @@ const Home = () => {
                         <Route path="/Notifications" element={<Notifications />} exact />
                         <Route path="/Settings" element={<Settings />} exact />
                         <Route path="/ChangePassword" element={<ChangePassword />} exact />
+                        <Route path="/Supplier_Form" element={<Supplier_Form />} />
+                        <Route path="/Customer_Form" element={<Customer_Form />} />
+                        <Route path="/Agency_Form" element={<Agency_Form />} />
+                        <Route path="/Worker_Form" element={<Worker_Form />} />
                     </Routes>
                 </Main>
             </Box>

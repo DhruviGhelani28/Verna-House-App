@@ -5,9 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+// import AccountCircle from '@mui/icons-material/AccountCircle';
 import key from "../../images/key.png";
-import classes from './Login.module.css';
+import classes from '../Login.module.css';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
@@ -15,7 +15,7 @@ import Badge from '@mui/material/Badge';
 import { Container } from "reactstrap";
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+// import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useNavigate } from "react-router-dom";
 import CardActions from '@mui/material/CardActions';
 
@@ -89,7 +89,7 @@ const ChangePassword = props => {
                     >
 
                         <div>
-                            <img width="23" src={key} className={classes.marginTop}></img>
+                            <img width="23" src={key} className={classes.marginTop} alt="oldKey"></img>
                             <TextField
                                 required
                                 id="old-password"
@@ -100,7 +100,7 @@ const ChangePassword = props => {
                             />
                         </div>
                         <div>
-                            <img width="23" src={key} className={classes.marginTop}></img>
+                            <img width="23" src={key} className={classes.marginTop} alt="newKey"></img>
                             <TextField
                                 required
                                 id="new-password"
@@ -111,7 +111,7 @@ const ChangePassword = props => {
                             />
                         </div>
                         <div>
-                            <img width="23" src={key} className={classes.marginTop}></img>
+                            <img width="23" src={key} className={classes.marginTop} alt="confirmKey"></img>
                             <TextField
                                 required
                                 id="confirm-password"

@@ -4,7 +4,7 @@ import Login from './Login';
 import Registration from "./Registration";
 import ChangePassword from "./ChangePassword";
 // import Button from '@mui/material/Button';
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 
 import { Container } from "@mui/material";
 
@@ -12,7 +12,9 @@ import { Container } from "@mui/material";
 const LoginRegistration = props => {
     // let match = useMatch();
     const navigate = useNavigate()
+
     const registrationHandler = () => {
+
         navigate("/Registration")
     }
     const loginHandler = () => {
